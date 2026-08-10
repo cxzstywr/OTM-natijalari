@@ -1,0 +1,292 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+} 
+
+body { 
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    background: #0f172a; 
+    position: relative; 
+    overflow-x: hidden; 
+    padding: 60px 20px; 
+} 
+
+/* Orqa fondagi premium neon nurlar */
+.bg-glow { 
+    position: absolute; 
+    width: 400px; 
+    height: 400px; 
+    background: linear-gradient(180deg, #3b82f6, #1d4ed8); 
+    border-radius: 50%; 
+    filter: blur(120px); 
+    opacity: 0.3; 
+    z-index: 1; 
+    animation: floatGlow 10s infinite alternate ease-in-out; 
+} 
+
+.bg-glow-2 { 
+    position: absolute; 
+    width: 350px; 
+    height: 350px; 
+    background: linear-gradient(180deg, #ec4899, #be185d); 
+    border-radius: 50%; 
+    filter: blur(120px); 
+    opacity: 0.25; 
+    z-index: 1; 
+    bottom: 10%; 
+    right: 10%; 
+    animation: floatGlow2 12s infinite alternate ease-in-out; 
+} 
+
+@keyframes floatGlow { 
+    0% { transform: translate(-100px, -50px) scale(1); } 
+    100% { transform: translate(100px, 50px) scale(1.2); } 
+} 
+
+@keyframes floatGlow2 { 
+    0% { transform: translate(50px, 100px) scale(1.1); } 
+    100% { transform: translate(-50px, -100px) scale(0.9); } 
+} 
+
+/* Asosiy Glassmorphism Card kartochkasi */
+.container { 
+    background: rgba(30, 41, 59, 0.7); 
+    padding: 40px; 
+    border-radius: 24px; 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); 
+    width: 100%; 
+    max-width: 500px; 
+    margin-bottom: 40px; 
+    z-index: 2; 
+    backdrop-filter: blur(16px); 
+    color: #f8fafc; 
+    animation: cardAppear 0.6s cubic-bezier(0.16, 1, 0.3, 1); 
+} 
+
+@keyframes cardAppear { 
+    from { opacity: 0; transform: scale(0.95) translateY(10px); } 
+    to { opacity: 1; transform: scale(1) translateY(0); } 
+} 
+
+.header { 
+    text-align: center; 
+    margin-bottom: 30px; 
+} 
+
+.header .main-emoji { 
+    font-size: 55px; 
+    margin-bottom: 12px; 
+    display: block; 
+    animation: pulseEmoji 2s infinite ease-in-out; 
+} 
+
+@keyframes pulseEmoji { 
+    0%, 100% { transform: scale(1); } 
+    50% { transform: scale(1.08); } 
+} 
+
+.header h2 { 
+    color: #fff; 
+    font-size: 26px; 
+    font-weight: 700; 
+    letter-spacing: -0.5px; 
+} 
+
+.header .subtitle { 
+    color: #94a3b8; 
+    font-size: 14px; 
+    margin-top: 6px; 
+} 
+
+/* Bosqichlar almashinuvi vizual stili */
+.step { 
+    display: none; 
+} 
+
+.step.active { 
+    display: block; 
+    animation: fadeInStep 0.4s ease forwards; 
+} 
+
+@keyframes fadeInStep { 
+    from { opacity: 0; transform: translateX(10px); } 
+    to { opacity: 1; transform: translateX(0); } 
+} 
+
+/* Elementlar stili va kiritish maydonlari */
+.input-group { 
+    margin-bottom: 25px; 
+} 
+
+.input-group label { 
+    display: block; 
+    margin-bottom: 10px; 
+    color: #cbd5e1; 
+    font-weight: 600; 
+    font-size: 15px; 
+} 
+
+.input-group input, .input-group select { 
+    width: 100%; 
+    padding: 14px 16px; 
+    border: 2px solid rgba(255, 255, 255, 0.1); 
+    border-radius: 12px; 
+    background: rgba(15, 23, 42, 0.6); 
+    outline: none; 
+    font-size: 16px; 
+    color: #fff; 
+    transition: all 0.25s ease; 
+} 
+
+.input-group input:focus, .input-group select:focus { 
+    border-color: #3b82f6; 
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); 
+    background: rgba(15, 23, 42, 0.8); 
+} 
+
+/* HA/YO'Q Status tugmalari silliq hover va active effektlar bilan */
+.btn-status-container { 
+    display: flex; 
+    gap: 15px; 
+    margin-top: 10px; 
+} 
+
+.btn-status { 
+    flex: 1; 
+    padding: 22px 15px; 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border-radius: 16px; 
+    background: rgba(30, 41, 59, 0.5); 
+    font-size: 16px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 12px; 
+} 
+
+.btn-status .emoji { 
+    font-size: 32px; 
+    transition: transform 0.25s ease; 
+} 
+
+.btn-status.yes { color: #4ade80; } 
+.btn-status.no { color: #f87171; } 
+
+/* Hover holati (Sichqoncha ustiga kelganda) */
+.btn-status:hover { 
+    transform: translateY(-4px); 
+} 
+
+.btn-status.yes:hover { 
+    background: rgba(74, 222, 128, 0.15); 
+    border-color: #4ade80; 
+    box-shadow: 0 0 20px rgba(74, 222, 128, 0.2); 
+} 
+.btn-status.yes:hover .emoji { transform: scale(1.2); } 
+
+.btn-status.no:hover { 
+    background: rgba(248, 113, 113, 0.15); 
+    border-color: #f87171; 
+    box-shadow: 0 0 20px rgba(248, 113, 113, 0.2); 
+} 
+.btn-status.no:hover .emoji { transform: scale(1.2); } 
+
+/* Active holati (Tugma bosilgan lahzada) */
+.btn-status:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: none;
+}
+
+/* Navigatsiya asosiy gradient tugmasi */
+.btn-nav { 
+    width: 100%; 
+    padding: 16px; 
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8); 
+    color: white; 
+    border: none; 
+    border-radius: 12px; 
+    font-size: 16px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: all 0.25s ease; 
+    margin-top: 10px; 
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); 
+} 
+
+.btn-nav:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5); 
+    background: linear-gradient(135deg, #60a5fa, #2563eb); 
+} 
+
+.btn-nav:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 2px 10px rgba(59, 130, 246, 0.2);
+}
+
+/* Yakuniy ekran stili */
+.result-screen { 
+    text-align: center; 
+    padding: 10px 0; 
+} 
+
+.result-screen .res-emoji { 
+    font-size: 65px; 
+    margin-bottom: 15px; 
+    display: block; 
+} 
+
+.result-screen h3 { 
+    color: #fff; 
+    margin-bottom: 15px; 
+    font-size: 24px; 
+} 
+
+.result-screen p { 
+    color: #cbd5e1; 
+    font-size: 16px; 
+    line-height: 1.6; 
+} 
+
+.footer-credit { 
+    position: fixed; 
+    bottom: 20px; 
+    right: 25px; 
+    color: rgba(255, 255, 255, 0.4); 
+    font-size: 13px; 
+    font-weight: 500; 
+    z-index: 10; 
+    background: rgba(30, 41, 59, 0.4); 
+    padding: 8px 16px; 
+    border-radius: 30px; 
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(8px); 
+} 
+
+.footer-credit span { 
+    animation: heartPulse 1.5s infinite; 
+    display: inline-block; 
+    color: #f43f5e; 
+} 
+
+@keyframes heartPulse { 
+    0%, 100% { transform: scale(1); } 
+    50% { transform: scale(1.2); } 
+} 
+
+@media (max-width: 768px) { 
+    body { padding: 30px 15px; } 
+    .container { padding: 25px 20px; } 
+    .header h2 { font-size: 22px; } 
+    .footer-credit { position: static; margin-top: 30px; text-align: center; } 
+}
