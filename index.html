@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitiruvchilar OTM Natijalari</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Vizual konfetti effekti uchun yuqori sifatli kutubxona -->
+    <script src="https://jsdelivr.net"></script>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
+
+    <div class="container">
+        <!-- 1-Bosqich: Ism-familiya kiritish -->
+        <div class="step active" id="step1">
+            <div class="header">
+                <span class="main-emoji">📝</span>
+                <h2>Sinfdoshlar OTM Natijalari</h2>
+                <p class="subtitle">Xush kelibsiz! Ma'lumotlaringizni kiriting.</p>
+            </div>
+            <div class="input-group">
+                <label for="fullname">👤 Ism va Familiyangiz:</label>
+                <input type="text" id="fullname" placeholder="Masalan: Ali Valiyev" required>
+            </div>
+            <button class="btn-nav" id="nextBtn1">Keyingisi ➡️</button>
+        </div>
+
+        <!-- 2-Bosqich: Status so'rash -->
+        <div class="step" id="step2">
+            <div class="header">
+                <span class="main-emoji">🎓</span>
+                <h2>Talaba bo'ldingizmi?</h2>
+            </div>
+            <div class="btn-status-container">
+                <button class="btn-status yes" id="statusYes">
+                    <span class="emoji">🎉</span>
+                    <span>HA, KIRDIM!</span>
+                </button>
+                <button class="btn-status no" id="statusNo">
+                    <span class="emoji">❌</span>
+                    <span>YO'Q, KIRMADIM</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 3-Bosqich: OTM tafsilotlari -->
+        <div class="step" id="step3">
+            <div class="header">
+                <span class="main-emoji">🏛️</span>
+                <h2>OTM Tafsilotlari</h2>
+            </div>
+            <div class="input-group">
+                <label for="university">🏫 Qaysi Universitet / Institut?</label>
+                <input type="text" id="university" placeholder="Masalan: TATU, O'zMU, TUIT">
+            </div>
+            <div class="input-group">
+                <label for="score">⭐ To'plangan ballingiz:</label>
+                <input type="number" step="0.1" id="score" placeholder="Masalan: 156.5">
+            </div>
+            <div class="input-group">
+                <label for="type">👑 Qabul turi:</label>
+                <select id="type">
+                    <option value="grant">Davlat Granti 🟢</option>
+                    <option value="contract">To'lov-Kontrakt 🟡</option>
+                    <option value="super">Super-Kontrakt 🔴</option>
+                </select>
+            </div>
+            <button class="btn-nav" id="submitBtn">Natijani Yuborish 📥</button>
+        </div>
+
+        <!-- 4-Bosqich: Yakuniy Rahmatnoma Sahifasi -->
+        <div class="step" id="stepResult">
+            <div class="result-screen">
+                <span class="res-emoji" id="resultIcon">✨</span>
+                <h3 id="resultTitle">Katta rahmat!</h3>
+                <p id="resultText">So'rovnomani to'ldirganingiz uchun tashakkur bildiramiz.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-credit">
+        Made with <span>❤️</span> by Maxmudov Abdulaziz
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
